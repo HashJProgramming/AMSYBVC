@@ -6,7 +6,6 @@ $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $birthdate = $_POST['birthdate'];
 $email = $_POST['email'];
-$department = $_POST['department'];
 $course = $_POST['course'];
 $civil = $_POST['civil'];
 $graduated = $_POST['graduated'];
@@ -44,14 +43,13 @@ if ($stmt->rowCount() > 0) {
     $stmt->execute();
     
 
-    $sql = "UPDATE `students` SET `firstname` = :firstname, `lastname` = :lastname, `birthdate` = :birthdate, `email` = :email, `department` = :department, `course` = :course, `civil` = :civil, `graduated` = :graduated, `children` = :children, `phone` = :phone, `present_address` = :present_address, `work_address` = :work_address WHERE `user_id` = :user_id";
+    $sql = "UPDATE `students` SET `firstname` = :firstname, `lastname` = :lastname, `birthdate` = :birthdate, `email` = :email, `course` = :course, `civil` = :civil, `graduated` = :graduated, `children` = :children, `phone` = :phone, `present_address` = :present_address, `work_address` = :work_address WHERE `user_id` = :user_id";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':user_id', $id);
         $stmt->bindParam(':firstname', $firstname);
         $stmt->bindParam(':lastname', $lastname);
         $stmt->bindParam(':birthdate', $birthdate);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':department', $department);
         $stmt->bindParam(':course', $course);
         $stmt->bindParam(':civil', $civil);
         $stmt->bindParam(':graduated', $graduated);

@@ -1,58 +1,9 @@
 $(document).ready(function () {
-    const currentPath = window.location.pathname;
+    const currentPath = window.location.pathname.toLowerCase();
+    console.log(currentPath);
     const urlParams = new URLSearchParams(window.location.search);
     const type = urlParams.get("type");
     const message = urlParams.get("message");
-  
-    $("#dataTable").DataTable({
-      // dom: 'Blfrtip',
-      dom: "Bfrtip",
-      responsive: true,
-      buttons: [
-        {
-          extend: "excel",
-          title: "AMSYBVC - ALUMNI ASSOCIATION",
-          className: "btn btn-primary text-primary",
-          text: '<i class="fa fa-file-excel"></i> EXCEL',
-          exportOptions: {
-            columns: [0, 1, 2, 3],
-          },
-        },
-        {
-          extend: "pdf",
-          title: "AMSYBVC - ALUMNI ASSOCIATION",
-          className: "btn btn-primary text-danger",
-          text: '<i class="fa fa-file-pdf"></i> PDF',
-          exportOptions: {
-            columns: [0, 1, 2, 3],
-          },
-        },
-        {
-          extend: "print",
-          className: "btn btn-primary text-info",
-          text: '<i class="fa fa-print"></i> Print',
-          title: "AMSYBVC - ALUMNI ASSOCIATION",
-          autoPrint: true,
-          exportOptions: {
-            columns: ":visible",
-            columns: [0, 1, 2, 3],
-          },
-          customize: function (win) {
-            $(win.document.body)
-              .find("table")
-              .addClass("display")
-              .css("font-size", "9px");
-            $(win.document.body)
-              .find("tr:nth-child(odd) td")
-              .each(function (index) {
-                $(this).css("background-color", "#D0D0D0");
-              });
-            $(win.document.body).find("h1").css("text-align", "center");
-          },
-        },
-      ],
-    });
-  
     VANTA.FOG({
       el: "#bg-animate",
       mouseControls: true,
@@ -74,18 +25,7 @@ $(document).ready(function () {
       Swal.fire("Error!", message, "error");
     }
   
-    if (currentPath.includes("/AMSYBVC/administrator/departments.php")) {
-      $('button[data-bs-target="#update"]').on("click", function () {
-        var id = $(this).data("id");
-        var name = $(this).data("name");
-        var address = $(this).data("address");
-        $('input[name="id"]').val(id);
-        $('input[name="name"]').val(name);
-        $('input[name="address"]').val(address);
-        console.log(id, name, address);
-  
-      });
-    }else if (currentPath.includes("/AMSYBVC/administrator/course.php")) {
+    if (currentPath.includes("/amsybvc/administrator/course.php")) {
       $('button[data-bs-target="#update"]').on("click", function () {
         var id = $(this).data("id");
         var name = $(this).data("name");
@@ -94,18 +34,16 @@ $(document).ready(function () {
         console.log(id, name);
       });
   
-    }else if (currentPath.includes("/AMSYBVC/administrator/announcement.php")) {
+    }else if (currentPath.includes("/amsybvc/administrator/announcement.php")) {
       $('button[data-bs-target="#update"]').on("click", function () {
         var id = $(this).data("id");
-        var name = $(this).data("name");
         var description = $(this).data("description");
         $('input[name="id"]').val(id);
-        $('input[name="name"]').val(name);
-        $('input[name="description"]').val(description);
+        $('textarea[name="description"]').val(description);
         console.log(id, name);
       });
   
-    }else if (currentPath.includes("/AMSYBVC/administrator/alumni.php")) {
+    }else if (currentPath.includes("/amsybvc/administrator/alumni.php")) {
       $('button[data-bs-target="#update"]').on("click", function () {
         var id = $(this).data("id");
         var username = $(this).data("username");
@@ -113,7 +51,6 @@ $(document).ready(function () {
         var lastname = $(this).data("lastname");
         var birthdate = $(this).data("birthdate");
         var email = $(this).data("email");
-        var department = $(this).data("department");
         var course = $(this).data("course");
         var civil = $(this).data("civil");
         var graduated = $(this).data("graduated");
@@ -127,7 +64,6 @@ $(document).ready(function () {
         $('input[name="lastname"]').val(lastname);
         $('input[name="birthdate"]').val(birthdate);
         $('input[name="email"]').val(email);
-        $('input[name="department"]').val(department);
         $('input[name="course"]').val(course);
         $('input[name="civil"]').val(civil);
         $('input[name="graduated"]').val(graduated);
@@ -135,9 +71,56 @@ $(document).ready(function () {
         $('input[name="phone"]').val(phone);
         $('input[name="present_address"]').val(present);
         $('input[name="work_address"]').val(work);
-        console.log(id, username, firstname, lastname, birthdate, email, department, course, civil, graduated, children, phone, present, work);
+        console.log(id, username, firstname, lastname, birthdate, email, course, civil, graduated, children, phone, present, work);
       });
-  
+      $("#dataTable").DataTable({
+        // dom: 'Blfrtip',
+        dom: "Bfrtip",
+        responsive: true,
+        buttons: [
+          {
+            extend: "excel",
+            title: "amsybvc - ALUMNI ASSOCIATION",
+            className: "btn btn-primary text-primary",
+            text: '<i class="fa fa-file-excel"></i> EXCEL',
+            exportOptions: {
+              columns: [0, 1, 2, 3],
+            },
+          },
+          {
+            extend: "pdf",
+            title: "amsybvc - ALUMNI ASSOCIATION",
+            className: "btn btn-primary text-danger",
+            text: '<i class="fa fa-file-pdf"></i> PDF',
+            exportOptions: {
+              columns: [0, 1, 2, 3],
+            },
+          },
+          {
+            extend: "print",
+            className: "btn btn-primary text-info",
+            text: '<i class="fa fa-print"></i> Print',
+            title: "amsybvc - ALUMNI ASSOCIATION",
+            autoPrint: true,
+            exportOptions: {
+              columns: ":visible",
+              columns: [0, 1, 2, 3],
+            },
+            customize: function (win) {
+              $(win.document.body)
+                .find("table")
+                .addClass("display")
+                .css("font-size", "9px");
+              $(win.document.body)
+                .find("tr:nth-child(odd) td")
+                .each(function (index) {
+                  $(this).css("background-color", "#D0D0D0");
+                });
+              $(win.document.body).find("h1").css("text-align", "center");
+            },
+          },
+        ],
+      });  
       $('button[data-bs-target="#approve"]').on("click", function () {
         var id = $(this).data("id");
         $('input[name="id"]').val(id);

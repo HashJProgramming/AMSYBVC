@@ -52,7 +52,7 @@ if (!isset($_SESSION['username'])) {
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>ID</th>
                                             <th>Description</th>
                                             <th>Created At</th>
                                             <th class="text-center">Action</th>
@@ -79,9 +79,9 @@ if (!isset($_SESSION['username'])) {
                 <div class="modal-header"><img src="../assets/img/blue.png" style="width: 10em;"><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button></div>
                 <div class="modal-body">
                     <form action="../functions/administrator/add-announcement.php" method="post" enctype="multipart/form-data">
-                        <div class="form-floating mb-3"><input class="form-control form-control" type="text" name="name" placeholder=" " required=""><label class="form-label" for="floatingInput">Name :</label></div>
-                        <div class="form-floating mb-3"><input class="form-control form-control" type="text" name="description" required="" placeholder=" "><label class="form-label" for="floatingInput">Description :</label></div>
-                            <input class="form-control form-control mb-3" type="file" name="photo" required="" placeholder=" ">
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control h-100" type="text" name="description" rows="8" required=""></textarea>
+                            <label class="form-label" for="floatingInput">Description :</label></div>
                             <button class="btn btn-primary w-100" type="submit">Add Announcement</button>
                         <div class="d-flex flex-column align-items-center mb-4"></div>
                     </form>
@@ -97,9 +97,11 @@ if (!isset($_SESSION['username'])) {
                 <div class="modal-body">
                     <form action="../functions/administrator/update-announcement.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id">
-                        <div class="form-floating mb-3"><input class="form-control form-control" type="text" name="name" placeholder=" " required=""><label class="form-label" for="floatingInput">Name :</label></div>
-                        <div class="form-floating mb-3"><input class="form-control form-control" type="text" name="description" required="" placeholder=" "><label class="form-label" for="floatingInput">Description :</label></div>
-                            <input class="form-control form-control mb-3" type="file" name="photo">
+                        
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control h-100" type="text" name="description"  rows="8" required=""></textarea>
+                        <label class="form-label" for="floatingInput">Description :</label></div>
+                         
                             <button class="btn btn-primary w-100" type="submit">Update Announcement</button>
                         <div class="d-flex flex-column align-items-center mb-4"></div>
                     </form>

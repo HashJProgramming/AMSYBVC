@@ -1,28 +1,4 @@
 <?php
-function get_department_datatable(){
-    global $db;
-    $sql = 'SELECT * FROM `departments`';
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $departments = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($departments as $department) {
-    ?>
-    <tr>
-            <td><img class="rounded-circle me-2" width="30" height="30" src="../assets/img/logo3.webp"><?php echo $department['name']?></td>
-            <td><?php echo $department['address']?></td>
-            <td><?php echo $department['created_at']?></td>
-            <td class="text-center">
-                <button class="btn btn-outline-warning mx-1" type="button" data-bs-target="#update" data-bs-toggle="modal" 
-                    data-id="<?php echo $department['id']?>"
-                    data-name="<?php echo $department['name']?>"
-                    data-address="<?php echo $department['address']?>">Update</button>
-                <button class="btn btn-outline-danger mx-1" type="button" data-bs-target="#delete" data-bs-toggle="modal" 
-                data-id="<?php echo $department['id']?>">Delete</button>
-            </td>
-        </tr>
-    <?php
-    }
-}
 
 function get_course_datatable(){
     global $db;
@@ -49,8 +25,7 @@ function get_course_datatable(){
 
 function get_students(){
     global $db;
-    $sql = 'SELECT s.*, d.name AS department_name, c.name AS course_name, u.id as user_id, u.* FROM `students` s
-        LEFT JOIN `departments` d ON s.department = d.id
+    $sql = 'SELECT s.*, c.name AS course_name, u.id as user_id, u.* FROM `students` s
         LEFT JOIN `courses` c ON s.course = c.id
         LEFT JOIN `users` u ON s.user_id = u.id';
     $stmt = $db->prepare($sql);
@@ -61,7 +36,6 @@ function get_students(){
     ?>
         <tr>
             <td><img class="rounded-circle me-2" width="30" height="30" src="../assets/img/logo3.webp"><?php echo $student['firstname'].' '.$student['lastname'] ?></td>
-            <td><?php echo $student['department_name']?></td>
             <td><?php echo $student['course_name']?></td>
             <td><?php echo $student['email']?></td>
             <td><?php echo $student['civil']?></td>
@@ -81,7 +55,6 @@ function get_students(){
                 data-lastname="<?php echo $student['lastname']?>"
                 data-birthdate="<?php echo $student['birthdate']?>"
                 data-email="<?php echo $student['email']?>"
-                data-department="<?php echo $student['department_name']?>"
                 data-course="<?php echo $student['course_name']?>"
                 data-civil="<?php echo $student['civil']?>"
                 data-graduated="<?php echo $student['graduated']?>"
@@ -107,13 +80,12 @@ function get_announcements(){
     foreach ($announcements as $announcement) {
     ?>
     <tr>
-            <td><img class="rounded-circle me-2" width="30" height="30" src="../functions/images/announcements/<?php echo $announcement['image']?>"><?php echo $announcement['name']?></td>
+            <td><img class="rounded-circle me-2" width="30" height="30" src="../assets/img/logo3.webp"><?php echo $announcement['id']?></td>
             <td><?php echo $announcement['description']?></td>
             <td><?php echo $announcement['created_at']?></td>
             <td class="text-center">
                 <button class="btn btn-outline-warning mx-1" type="button" data-bs-target="#update" data-bs-toggle="modal" 
                     data-id="<?php echo $announcement['id']?>"
-                    data-name="<?php echo $announcement['name']?>"
                     data-description="<?php echo $announcement['description']?>">Update</button>
                 <button class="btn btn-outline-danger mx-1" type="button" data-bs-target="#delete" data-bs-toggle="modal" data-id="<?php echo $announcement['id']?>">Delete</button>
             </td>

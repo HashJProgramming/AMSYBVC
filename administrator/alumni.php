@@ -59,7 +59,6 @@ if (!isset($_SESSION['username'])) {
                                     <thead>
                                         <tr>
                                             <th>Fullname</th>
-                                            <th>Department</th>
                                             <th>Course</th>
                                             <th>Email</th>
                                             <th>Civil Status</th>
@@ -117,13 +116,6 @@ if (!isset($_SESSION['username'])) {
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <div class="form-floating mb-3"><select class="form-select" required name="department">
-                                        <optgroup label="Department">
-                                            <?php get_departments(); ?>
-                                        </optgroup>
-                                    </select><label class="form-label" for="floatingInput">Department :</label></div>
-                            </div>
                             <div class="col">
                                 <div class="form-floating mb-3"><select class="form-select" required name="course">
                                         <optgroup label="Course">
@@ -195,13 +187,6 @@ if (!isset($_SESSION['username'])) {
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <div class="form-floating mb-3"><select class="form-select" required name="department">
-                                        <optgroup label="Department">
-                                            <?php get_departments(); ?>
-                                        </optgroup>
-                                    </select><label class="form-label" for="floatingInput">Department :</label></div>
-                            </div>
                             <div class="col">
                                 <div class="form-floating mb-3"><select class="form-select" required name="course">
                                         <optgroup label="Course">

@@ -19,15 +19,6 @@
         ");
 
         $db->exec("
-            CREATE TABLE IF NOT EXISTS `departments` (
-                id INT PRIMARY KEY AUTO_INCREMENT,
-                name VARCHAR(255),
-                address VARCHAR(255),
-                created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-            )
-        ");
-
-        $db->exec("
             CREATE TABLE IF NOT EXISTS `courses` (
                 id INT PRIMARY KEY AUTO_INCREMENT,
                 name VARCHAR(255),
@@ -38,9 +29,7 @@
         $db->exec("
             CREATE TABLE IF NOT EXISTS `announcements` (
                 id INT PRIMARY KEY AUTO_INCREMENT,
-                name VARCHAR(255),
                 description VARCHAR(255),
-                image VARCHAR(255),
                 created_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )
         ");
@@ -49,7 +38,6 @@
             CREATE TABLE IF NOT EXISTS `students` (
             id INT PRIMARY KEY AUTO_INCREMENT,
             user_id INT,
-            department INT,
             course INT,
             firstname VARCHAR(255),
             lastname VARCHAR(255),
@@ -61,7 +49,6 @@
             phone VARCHAR(16),
             present_address VARCHAR(255),
             work_address VARCHAR(255),
-            FOREIGN KEY (department) REFERENCES departments(id) ON DELETE CASCADE,
             FOREIGN KEY (course) REFERENCES courses(id) ON DELETE CASCADE,
             FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP

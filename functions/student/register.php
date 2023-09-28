@@ -7,7 +7,6 @@ $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $birthdate = $_POST['birthdate'];
 $email = $_POST['email'];
-$department = $_POST['department'];
 $course = $_POST['course'];
 $civil = $_POST['civil'];
 $graduated = $_POST['graduated'];
@@ -34,15 +33,14 @@ if ($stmt->rowCount() > 0) {
     $stmt->execute();
     $user_id = $db->lastInsertId();
 
-    $sql = "INSERT INTO `students` (user_id, `firstname`, `lastname`, `birthdate`, `email`, `department`, `course`, `civil`, `graduated`, `children`, `phone`, `present_address`, `work_address`) 
-            VALUES (:user_id, :firstname, :lastname, :birthdate, :email, :department, :course, :civil, :graduated, :children, :phone, :present_address, :work_address)";
+    $sql = "INSERT INTO `students` (user_id, `firstname`, `lastname`, `birthdate`, `email`, `course`, `civil`, `graduated`, `children`, `phone`, `present_address`, `work_address`) 
+            VALUES (:user_id, :firstname, :lastname, :birthdate, :email, :course, :civil, :graduated, :children, :phone, :present_address, :work_address)";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':user_id', $user_id);
         $stmt->bindParam(':firstname', $firstname);
         $stmt->bindParam(':lastname', $lastname);
         $stmt->bindParam(':birthdate', $birthdate);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':department', $department);
         $stmt->bindParam(':course', $course);
         $stmt->bindParam(':civil', $civil);
         $stmt->bindParam(':graduated', $graduated);

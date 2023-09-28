@@ -57,8 +57,7 @@ if (!isset($_SESSION['username'])) {
                                     <thead>
                                         <tr>
                                             <th>Fullname</th>
-                                            <th>Graduated</th>
-                                            <th>Years</th>
+                                            <th>Year Graduated</th>
                                         </tr>
                                     </thead>
                                     <tbody>
