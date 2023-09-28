@@ -4,13 +4,13 @@
 - Download XAMPP from [here](https://www.apachefriends.org/download.html)
 - Install XAMPP
 - Clone this repository to your `xampp/htdocs` folder
-- `git clone https://github.com/HashJProgramming/YBVC`
+- `git clone https://github.com/HashJProgramming/AMSYBVC`
 - Open XAMPP Control Panel
 - Start Apache and MySQL
-- Open your browser and go to `localhost/YBVC`
+- Open your browser and go to `localhost/AMSYBVC`
 - Enjoy!
 
-Here you can change the `xampp/htdocs/index.php` to redirect to the `YBVC` folder.
+Here you can change the `xampp/htdocs/index.php` to redirect to the `AMSYBVC` folder.
 ```php
     <?php
         if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
@@ -19,7 +19,7 @@ Here you can change the `xampp/htdocs/index.php` to redirect to the `YBVC` folde
             $uri = 'http://';
         }
         $uri .= $_SERVER['HTTP_HOST'];
-        header('Location: '.$uri.'/YBVC/');
+        header('Location: '.$uri.'/AMSYBVC/');
         exit;
     ?>
 ```
