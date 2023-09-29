@@ -8,4 +8,4 @@ RewriteCond %{REQUEST_FILENAME} -d
 RewriteCond %{REQUEST_FILENAME}/index.php !-f
 
 # Redirect to index.php
-RewriteRule ^(.*)$ /index.php [L]
+RewriteRule ^(.*)$ / [L]
