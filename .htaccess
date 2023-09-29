@@ -1,11 +1,1 @@
-# Enable RewriteEngine
-RewriteEngine On
-
-# Check if the requested URL is a directory
-RewriteCond %{REQUEST_FILENAME} -d
-
-# Check if there is no index.php file in the directory
-RewriteCond %{REQUEST_FILENAME}/index.php !-f
-
-# Redirect to index.php
-RewriteRule ^(.*)$ / [L]
+Options -Indexes
