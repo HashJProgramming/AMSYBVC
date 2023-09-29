@@ -62,7 +62,9 @@ if (isset($_SESSION['username'])) {
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div><a href="https://www.ybvcenrollment.com/" target="_blank"><img class="rounded img-fluid w-100 fit-cover rounded-3 shadow-lg" style="min-height: 300px;" src="assets/img/ybvc.webp"></a></div>
+                        <div><a href="#">
+                            <img class="rounded img-fluid w-100 fit-auto rounded-3 shadow-lg" src="assets/img/logo3.webp"></a>
+                        </div>
                     </div>
                 </div>
             </div>

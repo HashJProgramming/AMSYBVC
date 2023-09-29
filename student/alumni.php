@@ -47,11 +47,11 @@ if (!isset($_SESSION['username'])) {
                     </div>
                 </div>
             </section>
-            <section class="py-4 py-xl-5">
+            <section class="py-4 py-xl-5 mb-5">
                 <div class="container py-4 py-xl-5">
                     <div class="card">
                         <div class="card-body shadow-sm">
-                            <h3 class="text-center card-title">Bachelor of Science in Crimilogy</h3>
+                            <h3 class="text-center card-title">ALUMNI LIST</h3>
                             <div class="table-responsive">
                                 <table class="table table-hover table-sm">
                                     <thead>
