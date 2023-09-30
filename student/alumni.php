@@ -49,23 +49,10 @@ if (!isset($_SESSION['username'])) {
             </section>
             <section class="py-4 py-xl-5 mb-5">
                 <div class="container py-4 py-xl-5">
-                    <div class="card">
-                        <div class="card-body shadow-sm">
-                            <h3 class="text-center card-title">ALUMNI LIST</h3>
-                            <div class="table-responsive">
-                                <table class="table table-hover table-sm">
-                                    <thead>
-                                        <tr>
-                                            <th>Fullname</th>
-                                            <th>Year Graduated</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php include_once '../functions/student/get-alumni.php'?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                    <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+
+                        <?php include_once '../functions/student/get-alumni.php'?>
+
                     </div>
                 </div>
             </section>

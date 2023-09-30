@@ -1,30 +1,67 @@
 <?php
-$id = $_SESSION['id'];
-$sql = "SELECT * FROM `students` WHERE `user_id` = :id";
-$stmt = $db->prepare($sql);
-$stmt->bindParam(':id', $id);
-$stmt->execute();
-$student = $stmt->fetch(PDO::FETCH_ASSOC);
-
-$graduated = $student['graduated'];
-$course = $student['course'];
-
-$sql = "SELECT s.*, u.status as `status` FROM `students` s 
-        LEFT JOIN `users` u ON u.id = s.user_id
-        WHERE `graduated` = :graduated AND `course` = :course AND u.status = 'approved'
+$sql = "SELECT c.id AS course_id, c.name AS course_name, s.graduated,
+ CONCAT(s.firstname, ' ', s.lastname) AS student_name
+FROM
+ courses c
+JOIN
+ students s ON c.id = s.course
+GROUP BY
+ c.id,
+ s.graduated
+ORDER BY
+ c.id,
+ s.graduated;
 ";
+
 $stmt = $db->prepare($sql);
-$stmt->bindParam(':graduated', $graduated);
-$stmt->bindParam(':course', $course);
 $stmt->execute();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($result as $row) {
-    $year =  date_diff(date_create($student['graduated']), date_create('now'))->y;
-    ?>
-    <tr>
-        <td><?php echo $row['firstname'].' '.$row['lastname']?></td>
-        <td><?php echo $row['graduated']?></td>
-    </tr>
-    <?php
+  $courseName = $row['course_name'];
+  $batchYear = $row['graduated'];
+  echo '<div class="col">';
+  echo '<div class="card">';
+  echo '<div class="card-body shadow-sm">';
+  echo '<h3 class="text-center card-title">' . $courseName . ' (' . $batchYear . ')' . '</h3>';
+  echo '<div class="table-responsive">';
+  echo '<table class="table table-hover table-sm">';
+  echo '<thead>';
+  echo '<tr>';
+  echo '<th>Fullname</th>';
+  echo '<th>Year Graduated</th>';
+  echo '</tr>';
+  echo '</thead>';
+  echo '<tbody>';
+
+  $sql2 = "SELECT
+ CONCAT(s.firstname, ' ', s.lastname) AS student_name
+FROM
+ students s
+WHERE
+ s.course = :course_id
+AND
+ s.graduated = :batch_year
+ORDER BY
+ student_name ASC";
+
+  $stmt2 = $db->prepare($sql2);
+  $stmt2->bindValue(':course_id', $row['course_id']);
+  $stmt2->bindValue(':batch_year', $row['graduated']);
+  $stmt2->execute();
+  $students = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+
+  foreach ($students as $student) {
+    echo '<tr>';
+    echo '<td>' . $student['student_name'] . '</td>';
+    echo '<td>' . $row['graduated'] . '</td>';
+    echo '</tr>';
+  }
+
+  echo '</tbody>';
+  echo '</table>';
+  echo '</div>';
+  echo '</div>';
+  echo '</div>';
+  echo '</div>';
 }

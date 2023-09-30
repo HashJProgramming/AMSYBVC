@@ -1,10 +1,7 @@
 <!-- Developer: Hash'J ❤️ Programming -->
 <?php
-    $json = file_get_contents('mysql.json');
-    $database = json_decode($json, true)['database'];
-    $username = json_decode($json, true)['username'];
-    $password = json_decode($json, true)['password'];        
-    $db = new PDO('mysql:host=localhost', $username, $password);
+    $database = 'ybvc';
+    $db = new PDO('mysql:host=localhost', 'root', '');
     $query = "CREATE DATABASE IF NOT EXISTS $database";
     try {
         $db->exec($query);
