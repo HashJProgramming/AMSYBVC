@@ -214,7 +214,7 @@ if (isset($_SESSION['username'])) {
                         </div>
                         <div class="row">
                             <div class="col">
-                                <div class="form-floating mb-3"><input class="form-control form-control" type="number" name="children" placeholder="children"><label class="form-label" for="floatingInput">Number of children if Married :</label></div>
+                                <div class="form-floating mb-3"><input class="form-control form-control" type="number" name="children" placeholder="children"><label class="form-label" for="floatingInput">No. Children:</label></div>
                             </div>
                             <div class="col">
                                 <div class="form-floating mb-3"><input class="form-control form-control" type="tel" name="phone" placeholder="phone" required><label class="form-label" for="floatingInput">Contact #: </label></div>

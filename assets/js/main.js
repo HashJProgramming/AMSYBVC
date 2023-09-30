@@ -25,7 +25,7 @@ $(document).ready(function () {
       Swal.fire("Error!", message, "error");
     }
   
-    if (currentPath.includes("/amsybvc/administrator/course.php")) {
+    if (currentPath.includes("/administrator/course.php")) {
       $('button[data-bs-target="#update"]').on("click", function () {
         var id = $(this).data("id");
         var name = $(this).data("name");
@@ -34,7 +34,7 @@ $(document).ready(function () {
         console.log(id, name);
       });
   
-    }else if (currentPath.includes("/amsybvc/administrator/announcement.php")) {
+    }else if (currentPath.includes("/administrator/announcement.php")) {
       $('button[data-bs-target="#update"]').on("click", function () {
         var id = $(this).data("id");
         var description = $(this).data("description");
@@ -43,7 +43,7 @@ $(document).ready(function () {
         console.log(id, name);
       });
   
-    }else if (currentPath.includes("/amsybvc/administrator/alumni.php")) {
+    }else if (currentPath.includes("/administrator/alumni.php")) {
       $('button[data-bs-target="#update"]').on("click", function () {
         var id = $(this).data("id");
         var username = $(this).data("username");
@@ -80,7 +80,7 @@ $(document).ready(function () {
         buttons: [
           {
             extend: "excel",
-            title: "amsybvc - ALUMNI ASSOCIATION",
+            title: "ALUMNI ASSOCIATION",
             className: "btn btn-primary text-primary",
             text: '<i class="fa fa-file-excel"></i> EXCEL',
             exportOptions: {
@@ -89,7 +89,7 @@ $(document).ready(function () {
           },
           {
             extend: "pdf",
-            title: "amsybvc - ALUMNI ASSOCIATION",
+            title: "ALUMNI ASSOCIATION",
             className: "btn btn-primary text-danger",
             text: '<i class="fa fa-file-pdf"></i> PDF',
             exportOptions: {
@@ -100,7 +100,7 @@ $(document).ready(function () {
             extend: "print",
             className: "btn btn-primary text-info",
             text: '<i class="fa fa-print"></i> Print',
-            title: "amsybvc - ALUMNI ASSOCIATION",
+            title: "ALUMNI ASSOCIATION",
             autoPrint: true,
             exportOptions: {
               columns: ":visible",

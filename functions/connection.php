@@ -1,7 +1,10 @@
 <!-- Developer: Hash'J ❤️ Programming -->
 <?php
-    $database = 'ybvc';
-    $db = new PDO('mysql:host=localhost', 'root', '');
+    $json = file_get_contents('mysql.json');
+    $database = json_decode($json, true)['database'];
+    $username = json_decode($json, true)['username'];
+    $password = json_decode($json, true)['password'];        
+    $db = new PDO('mysql:host=localhost', $username, $password);
     $query = "CREATE DATABASE IF NOT EXISTS $database";
     try {
         $db->exec($query);
@@ -74,5 +77,4 @@
     } catch(PDOException $e) {
         die("Error creating database: " . $e->getMessage());
     }
-    $db = new PDO("mysql:host=localhost;dbname=$database", "root", "");
 ?>
