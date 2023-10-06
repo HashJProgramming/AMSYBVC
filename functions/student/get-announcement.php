@@ -16,6 +16,7 @@ function get_announcement()
                 <div class="card-body p-4">
                     <p class="text-primary card-text mb-0"><?php echo $row['created_at']?></p>
                     <p class="card-text"><?php echo $row['description']?></p>
+                        <a href="comment.php?id=<?php echo $row['id']?>" class="btn btn-primary w-100 mb-4" type="button">View Comments</a>
                     <div class="d-flex"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="50" height="50" src="../assets/img/logo3.webp">
                         <div>
                             <p class="fw-bold mb-0">Administrator</p>
@@ -28,3 +29,4 @@ function get_announcement()
 <?php
     }
 }
+

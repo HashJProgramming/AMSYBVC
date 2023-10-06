@@ -55,6 +55,18 @@
         )
         ");
 
+        $db->exec("
+            CREATE TABLE IF NOT EXISTS `comments` (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            user_id INT,
+            announcement_id INT,
+            comment VARCHAR(255),
+            FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+            FOREIGN KEY (announcement_id) REFERENCES announcements(id) ON DELETE CASCADE,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+        ");
+
         $db->beginTransaction();
         $stmt = $db->prepare("SELECT COUNT(*) FROM `users` WHERE `username` = 'admin'");
         $stmt->execute();
