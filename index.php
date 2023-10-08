@@ -202,7 +202,7 @@ if (isset($_SESSION['username'])) {
                             <div class="col">
                                 <div class="form-floating mb-3"><select class="form-select" required name="civil">
                                         <optgroup label="Status">
-                                            <option value="Signle" selected="">Single</option>
+                                            <option value="Single" selected="">Single</option>
                                             <option value="Married">Married</option>
                                             <option value="Widow">Widow</option>
                                         </optgroup>

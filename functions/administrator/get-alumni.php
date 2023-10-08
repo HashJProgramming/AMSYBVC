@@ -25,10 +25,11 @@ foreach ($result as $row) {
   echo '<div class="card-body shadow-sm">';
   echo '<h3 class="text-center card-title">' . $courseName . ' (' . $batchYear . ')' . '</h3>';
   echo '<div class="table-responsive">';
-  echo '<table class="table table-hover table-sm">';
+  echo '<table class="table display table-hover table-sm">';
   echo '<thead>';
   echo '<tr>';
   echo '<th>Fullname</th>';
+  echo '<th>Course</th>';
   echo '<th>Year Graduated</th>';
   echo '</tr>';
   echo '</thead>';
@@ -59,6 +60,7 @@ ORDER BY
   foreach ($students as $student) {
     echo '<tr>';
     echo '<td>' . $student['student_name'] . '</td>';
+    echo '<td>' . $row['course_name'] . '</td>';
     echo '<td>' . $row['graduated'] . '</td>';
     echo '</tr>';
   }

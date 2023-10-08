@@ -84,7 +84,7 @@ $(document).ready(function () {
             className: "btn btn-primary text-primary",
             text: '<i class="fa fa-file-excel"></i> EXCEL',
             exportOptions: {
-              columns: [0, 1, 2, 3],
+              columns: [0, 1, 2, 3, 4, 5, 6, 7, 8],
             },
           },
           {
@@ -93,7 +93,7 @@ $(document).ready(function () {
             className: "btn btn-primary text-danger",
             text: '<i class="fa fa-file-pdf"></i> PDF',
             exportOptions: {
-              columns: [0, 1, 2, 3],
+              columns: [0, 1, 2, 3, 4, 5, 6, 7, 8],
             },
           },
           {
@@ -104,7 +104,7 @@ $(document).ready(function () {
             autoPrint: true,
             exportOptions: {
               columns: ":visible",
-              columns: [0, 1, 2, 3],
+              columns: [0, 1, 2, 3, 4, 5, 6, 7, 8],
             },
             customize: function (win) {
               $(win.document.body)

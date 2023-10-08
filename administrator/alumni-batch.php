@@ -44,7 +44,7 @@ if (!isset($_SESSION['username'])) {
                 <div class="container">
                     <div class="text-dark bg-light border rounded border-0 border-light d-flex flex-column justify-content-between align-items-center flex-lg-row p-4 p-lg-5 shadow-sm" data-bs-theme="light">
                         <div class="text-center text-lg-start py-3 py-lg-1">
-                            <h2 class="fw-bold mb-2">Alumni</h2>
+                            <h2 class="fw-bold mb-2">Batch Alumni List</h2>
                             <p class="mb-0">YBVC ALUMNI ASSOCIATION -
 "THE BUILDER OF FUTURE LEADERS"</p>
                         </div>
@@ -53,7 +53,7 @@ if (!isset($_SESSION['username'])) {
             </section>
             <section class="py-4 py-xl-5 mb-5">
                 <div class="container py-4 py-xl-5">
-                    <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+                    <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-2">
 
                         <?php include_once '../functions/administrator/get-alumni.php'?>
 
@@ -73,6 +73,51 @@ if (!isset($_SESSION['username'])) {
     <script src="../assets/js/sweetalert2.all.min.js"></script>
     <script src="../assets/js/vanta.fog.min.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script>
+        new DataTable('table.display', {
+        // dom: 'Blfrtip',
+        dom: "Bfrtip",
+        responsive: true,
+        buttons: [
+          {
+            extend: "excel",
+            title: "ALUMNI ASSOCIATION",
+            exportOptions: {
+                stripHtml: false
+            }
+          },
+          {
+            extend: "pdf",
+            title: "ALUMNI ASSOCIATION",
+            exportOptions: {
+                stripHtml: false
+            }
+          },
+          {
+            extend: "print",
+            title: "ALUMNI ASSOCIATION",
+            autoPrint: true,
+            customize: function (win) {
+              $(win.document.body)
+                .find("table")
+                .addClass("display")
+                .css("font-size", "9px");
+              $(win.document.body)
+                .find("tr:nth-child(odd) td")
+                .each(function (index) {
+                  $(this).css("background-color", "#D0D0D0");
+                });
+              $(win.document.body).find("h1").css("text-align", "center");
+            },
+            exportOptions: {
+                stripHtml: false
+            }
+          },
+        ],
+        
+      });
+        
+    </script>
 </body>
 
 </html>
