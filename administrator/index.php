@@ -44,56 +44,67 @@ if (!isset($_SESSION['username'])) {
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-xl-3 mb-4">
-                        <div class="card shadow border-start-primary py-2">
-                            <div class="card-body">
-                                <div class="row align-items-center no-gutters">
-                                    <div class="col me-2">
-                                        <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>ALUMNI</span></div>
-                                        <div class="fs-2 text-primary fw-bold h5 mb-0"><span><?php get_students_count() ?></span></div>
+                        <a class="text-decoration-none" href="alumni.php">
+                            <div class="card shadow border-start-primary py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>ALUMNI</span></div>
+                                            <div class="fs-2 text-primary fw-bold h5 mb-0"><span><?php get_students_count() ?></span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-user-graduate text-primary fa-2x"></i></div>
                                     </div>
-                                    <div class="col-auto"><i class="fas fa-user-graduate text-primary fa-2x"></i></div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-md-6 col-xl-3 mb-4">
-                        <div class="card shadow border-start-success py-2">
-                            <div class="card-body">
-                                <div class="row align-items-center no-gutters">
-                                    <div class="col me-2">
-                                        <div class="text-uppercase text-info fw-bold text-xs mb-1"><span class="text-info">Announcement</span></div>
-                                        <div class="fs-2 text-info fw-bold h5 mb-0"><span><?php get_announcements_count() ?></span></div>
+                        <a class="text-decoration-none" href="announcement.php">
+
+                            <div class="card shadow border-start-success py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-info fw-bold text-xs mb-1"><span class="text-info">Announcement</span></div>
+                                            <div class="fs-2 text-info fw-bold h5 mb-0"><span><?php get_announcements_count() ?></span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-info-circle text-info fa-2x"></i></div>
                                     </div>
-                                    <div class="col-auto"><i class="fas fa-info-circle text-info fa-2x"></i></div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-md-6 col-xl-3 mb-4">
-                        <div class="card shadow border-start-success py-2">
-                            <div class="card-body">
-                                <div class="row align-items-center no-gutters">
-                                    <div class="col me-2">
-                                        <div class="text-uppercase text-success fw-bold text-xs mb-1"><span class="text-dark">courses</span></div>
-                                        <div class="fs-2 text-dark fw-bold h5 mb-0"><span><?php get_courses_count() ?></span></div>
+                        <a class="text-decoration-none" href="course.php">
+
+                            <div class="card shadow border-start-success py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span class="text-dark">courses</span></div>
+                                            <div class="fs-2 text-dark fw-bold h5 mb-0"><span><?php get_courses_count() ?></span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-book fa-2x"></i></div>
                                     </div>
-                                    <div class="col-auto"><i class="fas fa-book fa-2x"></i></div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-md-6 col-xl-3 mb-4">
-                        <div class="card shadow border-start-success py-2">
-                            <div class="card-body">
-                                <div class="row align-items-center no-gutters">
-                                    <div class="col me-2">
-                                        <div class="text-uppercase text-success fw-bold text-xs mb-1"><span class="text-warning">Pending Students</span></div>
-                                        <div class="fs-2 text-warning fw-bold h5 mb-0"><span><?php get_students_pending_count(); ?></span></div>
+                        <a class="text-decoration-none" href="alumni-pending.php">
+
+                            <div class="card shadow border-start-success py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span class="text-warning">Pending Students</span></div>
+                                            <div class="fs-2 text-warning fw-bold h5 mb-0"><span><?php get_students_pending_count(); ?></span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-info-circle text-warning fa-2x"></i></div>
                                     </div>
-                                    <div class="col-auto"><i class="fas fa-info-circle text-warning fa-2x"></i></div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="row row-cols-2 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-2">

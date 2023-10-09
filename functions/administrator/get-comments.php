@@ -22,7 +22,7 @@ foreach ($result as $row) {
                     <h5 class="card-title"><?php if(strlen($row['firstname']) > 0){echo 'Student: '; } else {echo 'Administrator '; }?><?php echo $row['firstname'].' '.$row['lastname']?></h5>
                 <p class="card-text">Comment: <?php echo $row['comment'] ?></p>
                 <p class="card-text">Date: <?php echo $row['created_at'] ?></p>
-                <form action="../functions/student/delete-comment.php" method="post">
+                <form action="../functions/administrator/delete-comment.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
                     <input type="hidden" name="announcement_id" value="<?php echo $_GET['id'] ?>">
                     <?php

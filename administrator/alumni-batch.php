@@ -53,7 +53,7 @@ if (!isset($_SESSION['username'])) {
             </section>
             <section class="py-4 py-xl-5 mb-5">
                 <div class="container py-4 py-xl-5">
-                    <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-2">
+                    <div class="row gy-4 row-cols-1 row-cols-md-1 row-cols-xl-1">
 
                         <?php include_once '../functions/administrator/get-alumni.php'?>
 
