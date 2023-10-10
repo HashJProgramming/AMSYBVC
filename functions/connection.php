@@ -56,6 +56,17 @@
         ");
 
         $db->exec("
+            CREATE TABLE IF NOT EXISTS `graduates` (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            course INT,
+            fullname VARCHAR(255),
+            graduated DATE,
+            FOREIGN KEY (course) REFERENCES courses(id) ON DELETE CASCADE,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+        ");
+
+        $db->exec("
             CREATE TABLE IF NOT EXISTS `comments` (
             id INT PRIMARY KEY AUTO_INCREMENT,
             user_id INT,

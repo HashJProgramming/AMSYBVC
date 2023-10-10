@@ -119,6 +119,34 @@ function get_students_pending(){
     }
 }
 
+function get_students_graduated(){
+    global $db;
+    $sql = 'SELECT g.*, c.name AS course_name FROM `graduates` g LEFT JOIN `courses` c ON g.course = c.id';
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($students as $student) {
+    ?>
+        <tr>
+            <td><img class="rounded-circle me-2" width="30" height="30" src="../assets/img/logo3.webp"><?php echo $student['id'] ?></td>
+            <td><?php echo $student['fullname']?></td>
+            <td><?php echo $student['course_name']?></td>
+            <td><?php echo $student['graduated']?></td>
+            <td class="text-center">
+                <button class="btn btn-outline-warning mx-1" type="button" data-bs-target="#update" data-bs-toggle="modal" 
+                data-id="<?php echo $student['id']?>"
+                data-fullname="<?php echo $student['fullname']?>"
+                data-course="<?php echo $student['course_name']?>"
+                data-graduated="<?php echo $student['graduated']?>"
+                >Update</button>
+                <button class="btn btn-outline-danger mx-1" type="button" data-bs-target="#delete" data-bs-toggle="modal" 
+                data-id="<?php echo $student['id']?>"
+                >Delete</button></td>
+        </tr>
+    <?php
+    }
+}
+
 function get_announcements(){
     global $db;
     $sql = 'SELECT * FROM `announcements`';
