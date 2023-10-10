@@ -29,6 +29,15 @@ function get_students_count(){
     echo count($result);
 }
 
+function get_graduate_students_count(){
+    global $db;
+    $sql = "SELECT * FROM `graduates`";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    echo count($result);
+}
+
 function get_students_pending_count(){
     global $db;
     $sql = "SELECT s.*, u.status FROM `students` s LEFT JOIN `users` u ON s.user_id = u.id WHERE `status` = 'pending'";
