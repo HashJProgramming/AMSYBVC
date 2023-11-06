@@ -50,7 +50,7 @@ if (!isset($_SESSION['username'])) {
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">Alumni List</p>
+                            <p class="text-primary m-0 fw-bold">List of Graduates</p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
